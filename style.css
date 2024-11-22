@@ -11,7 +11,52 @@
 ****************************************************
     共通パーツ
 */
-
+/*①カード型サムネイル リンク・ホバー機能の実装 & スタイル調整*/
+/*実装箇所：「サービス案内」 更新：24.11.22*/
+.swell-block-column.swl-has-mb--s {
+  padding-bottom: 0px;
+}
+.thumbnail01__link {
+  transition: opacity 0.3s ease;
+}
+.thumbnail01__link:hover {
+  opacity: 0.6;
+}
+.thumbnail01__img {
+}
+.thumbnail01__img img {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 300 / 200;
+  object-fit: cover;
+}
+.thumbnail01__title {
+  text-align: center;
+  font-size: 1.1em;
+  font-weight: 600;
+  padding-top: 0.2em;
+}
+.thumbnail01__text {
+  font-size: 0.9em;
+  padding-inline: 1em;
+  padding-top: 1em;
+  padding-bottom: 1.5em;
+  color: #333;
+}
+.thumbnail01__button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.2em;
+  font-size: 0.9em;
+  padding-block: 0.5em;
+  text-align: center;
+  background-color: #0c6cbc;
+  color: #fff;
+}
+.thumbnail01__button svg {
+  fill: #fff;
+}
 /* 
 ****************************************************
     トップページ

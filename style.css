@@ -7,17 +7,40 @@
     Version: 1.0.0
 */
 
-/* 
-****************************************************
-    共通パーツ
-*/
+/*------------------
+１）共通パーツ
+------------------*/
+/* 文章 */
+p,
+th,
+td,
+dt,
+dd {
+  /*   font-family: "Zen Old Mincho", serif; */
+}
+/* 見出し */
+h2 {
+  color: #073061 !important;
+}
+/* コンテンツとfooter間の余白消去 */
+#content {
+  margin-bottom: 0px;
+}
+
 /*①カード型サムネイル リンク・ホバー機能の実装 & スタイル調整*/
 /*実装箇所：「サービス案内」 更新：24.11.22*/
 .swell-block-column.swl-has-mb--s {
   padding-bottom: 0px;
 }
+.thumbnail01 {
+  height: 100%;
+}
 .thumbnail01__link {
   transition: opacity 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
 }
 .thumbnail01__link:hover {
   opacity: 0.6;
@@ -57,7 +80,260 @@
 .thumbnail01__button svg {
   fill: #fff;
 }
-/* 
-****************************************************
-    トップページ
-*/
+
+/*②Q&A項目の背景色 */
+/*実装箇所：「Q&A項目」 更新：24.12.7*/
+.faq_q {
+  background-color: #f2f7fd !important;
+}
+.faq_a {
+  background-color: #fff !important;
+}
+
+/*------------------
+２）TOP
+------------------*/
+/* スライダータイトル */
+.p-postSlider__title {
+  text-align: left;
+  padding-left: 10px;
+}
+
+/*------------------
+３）お問い合わせフォーム
+------------------*/
+/* フォーム初期化 */
+.wpcf7-list-item {
+  margin: 0;
+}
+.wpcf7-not-valid-tip {
+  position: absolute;
+  bottom: calc(-25 / 16 * 1rem);
+}
+.contact-form__checkbox .wpcf7-not-valid-tip {
+  bottom: calc(-8 / 16 * 1rem);
+  left: calc(-45 / 16 * 1rem);
+}
+/* 各フォームの初期化 */
+.contact-form__input,
+.contact-form__submit-button,
+.contact-form__textarea {
+  margin: 0;
+  padding: 0;
+  background: none;
+  border: none;
+  border-radius: 0;
+  outline: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+.contact-form__input,
+.contact-form__textarea {
+  outline: 1px solid #ccc;
+}
+.contact-form__input:focus,
+.contact-form__textarea:focus {
+  background-color: #fff;
+}
+/* コンタクトフォーム */
+.contact-form {
+  max-width: 960px;
+  margin-inline: auto;
+}
+.contact-form__fields {
+  display: flex;
+  flex-direction: column;
+  gap: calc(50 / 16 * 1rem);
+}
+@media screen and (max-width: 767px) {
+  .contact-form__fields {
+    gap: calc(30 / 16 * 1rem);
+  }
+}
+.contact-form__field {
+  display: flex;
+  gap: calc(30 / 16 * 1rem);
+}
+@media screen and (max-width: 767px) {
+  .contact-form__field {
+    flex-direction: column;
+    gap: calc(10 / 16 * 1rem);
+  }
+}
+.contact-form__field-head {
+  display: flex;
+  flex-direction: column;
+  flex-shrink: 0;
+  min-width: 200px;
+  gap: calc(8 / 16 * 1rem);
+}
+@media screen and (max-width: 767px) {
+  .contact-form__field-head {
+    flex-direction: row;
+    align-items: center;
+    gap: calc(16 / 16 * 1rem);
+  }
+}
+.contact-form__field-label {
+  font-size: calc(20 / 16 * 1rem);
+  font-weight: 600;
+}
+@media screen and (max-width: 767px) {
+  .contact-form__field-label {
+    font-size: calc(18 / 16 * 1rem);
+  }
+}
+label.contact-form__field-label,
+.p-contact-form__radio label,
+.wpcf7-list-item-label {
+  cursor: pointer;
+  width: fit-content;
+}
+.contact-form__field-tag {
+  padding: calc(2 / 16 * 1rem) calc(12 / 16 * 1rem);
+  border-radius: 50px;
+  background-color: #0c6cbc;
+  color: #fff;
+  font-size: calc(12 / 16 * 1rem);
+  font-weight: 600;
+  width: fit-content;
+  display: grid;
+  place-items: center;
+}
+@media screen and (max-width: 767px) {
+  .contact-form__field-tag {
+    font-size: calc(10 / 16 * 1rem);
+  }
+}
+.contact-form__field-item {
+  flex-grow: 1;
+}
+/* フィールドフォーム共通 */
+.contact-form__input,
+.contact-form__textarea {
+  padding-top: calc(16 / 16 * 1rem);
+  padding-bottom: calc(16 / 16 * 1rem);
+  padding-left: calc(16 / 16 * 1rem);
+  padding-right: calc(16 / 16 * 1rem);
+  border-radius: 4px;
+  background-color: #eee;
+  width: 100%;
+  font-size: calc(18 / 16 * 1rem);
+  font-weight: 400;
+  line-height: calc(27 / 18 * 1em);
+  letter-spacing: calc(0.9 / 18 * 1em);
+}
+@media screen and (max-width: 767px) {
+  .contact-form__input {
+    padding-top: calc(12 / 16 * 1rem);
+    padding-bottom: calc(12 / 16 * 1rem);
+    font-size: calc(14 / 16 * 1rem);
+    line-height: calc(21 / 14 * 1em);
+    letter-spacing: calc(0.7 / 14 * 1em);
+  }
+}
+.contact-form__input::placeholder {
+  color: #b9b9b9;
+}
+/* お問い合わせカテゴリ */
+.p-contact-form__radio {
+  display: flex;
+  flex-wrap: wrap;
+  column-gap: calc(20 / 16 * 1rem);
+  row-gap: 0px;
+}
+@media screen and (max-width: 767px) {
+  .p-contact-form__radio {
+    flex-direction: column;
+    justify-content: center;
+    gap: 8px;
+  }
+}
+.p-contact-form__radio label {
+  font-size: calc(20 / 16 * 1rem);
+  display: flex;
+  gap: calc(4 / 16 * 1rem);
+  align-items: center;
+}
+@media screen and (max-width: 767px) {
+  .p-contact-form__radio label {
+    font-size: calc(18 / 16 * 1rem);
+  }
+}
+/* プライバシーポリシー */
+.contact-form__privacy {
+  font-size: calc(20 / 16 * 1rem);
+}
+.contact-form__privacy input {
+  cursor: pointer;
+}
+.contact-form__privacy label {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+.contact-form__privacy-link {
+  text-decoration: underline;
+  transition: opacity .3s ease;
+}
+.contact-form__privacy-link:hover {
+  opacity: 0.7;
+}
+/* サブミットボタン */
+.p-contact-form__submit {
+  text-align: center;
+}
+.contact-form__submit-button {
+  cursor: pointer;
+  padding: calc(10 / 16 * 1rem) calc(100 / 16 * 1rem);
+  border-radius: 50px;
+  background-color: #0c6cbc;
+  color: #fff;
+  font-size: calc(18 / 16 * 1rem);
+  font-weight: 600;
+  outline: 1px solid transparent;
+  transition: opacity 0.3s ease;
+}
+@media screen and (max-width: 767px) {
+  .contact-form__submit-button {
+    padding: calc(10 / 16 * 1rem) calc(100 / 16 * 1rem);
+    font-size: calc(14 / 16 * 1rem);
+  }
+}
+.contact-form__submit-button:hover {
+  opacity: 0.8;
+}
+.contact-form__submit-button:disabled,
+.contact-form__submit-button:disabled:hover  {
+  cursor: not-allowed;
+  opacity: 0.4;
+}
+.contact-form__submit-button:focus {
+  outline: 2px solid #ccc;
+}
+/* エラーメッセージ */
+.wpcf7-not-valid-tip {
+  font-size: calc(16 / 16 * 1rem);
+  bottom: calc(-50 / 16 * 1rem);
+}
+@media screen and (max-width: 767px) {
+  .wpcf7-not-valid-tip {
+    font-size: calc(14 / 16 * 1rem);
+    bottom: calc(-40 / 16 * 1rem);
+  }
+}
+@media screen and (max-width: 400px) {
+  .wpcf7-not-valid-tip {
+    bottom: calc(-45 / 16 * 1rem);
+  }
+}
+.p-contact-form__radio + .wpcf7-not-valid-tip,
+.contact-form__textarea + .wpcf7-not-valid-tip{
+  bottom: calc(-25 / 16 * 1rem);
+}
+/* スピナー非表示 */
+.wpcf7-spinner {
+  display: none;
+}

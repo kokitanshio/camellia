@@ -13,13 +13,21 @@
 /**
  * 子テーマでのファイルの読み込み
  */
-add_action('wp_enqueue_scripts', function() {
-	
-	$timestamp = date( 'Ymdgis', filemtime( get_stylesheet_directory() . '/style.css' ) );
-	wp_enqueue_style( 'child_style', get_stylesheet_directory_uri() .'/style.css', [], $timestamp );
+add_action('wp_enqueue_scripts', function () {
 
-	/* その他の読み込みファイルはこの下に記述 */
+    $timestamp = date('Ymdgis', filemtime(get_stylesheet_directory() . '/style.css'));
+    wp_enqueue_style('child_style', get_stylesheet_directory_uri() . '/style.css', [], $timestamp);
 
+    /* その他の読み込みファイルはこの下に記述 */
+
+
+    /*====================================================
+# Contact Form 7で自動挿入されるPタグ、brタグを削除
+=====================================================*/
+    add_filter('wpcf7_autop_or_not', 'wpcf7_autop_return_false');
+    function wpcf7_autop_return_false() {
+        return false;
+    }
 }, 11);
 
 
@@ -54,7 +62,7 @@ remove_action('wp_head', 'wp_oembed_add_host_js'); //外部コンテンツの埋
 // 絵文字利用の削除
 remove_action('wp_head', 'print_emoji_detection_script', 7);
 remove_action('admin_print_scripts', 'print_emoji_detection_script');
-remove_action('wp_print_styles', 'print_emoji_styles' );
+remove_action('wp_print_styles', 'print_emoji_styles');
 remove_action('admin_print_styles', 'print_emoji_styles', 10);
 
 // Global Stylesのコード削除
@@ -62,7 +70,7 @@ remove_action('wp_enqueue_scripts', 'wp_enqueue_global_styles');
 remove_action('wp_body_open', 'wp_global_styles_render_svg_filters');
 
 // 最近のコメントウィジェット削除
-function remove_wp_widget_recent_comments_style(){
+function remove_wp_widget_recent_comments_style() {
     global $wp_widget_factory;
     remove_action('wp_head', array(
         $wp_widget_factory->widgets['WP_Widget_Recent_Comments'],
@@ -77,19 +85,18 @@ add_action('widgets_init', 'remove_wp_widget_recent_comments_style');
  *
  * @codex https://wpdocs.osdn.jp/%E9%96%A2%E6%95%B0%E3%83%AA%E3%83%95%E3%82%A1%E3%83%AC%E3%83%B3%E3%82%B9/remove_menu_page
  */
-function remove_menus()
-{
-  // remove_menu_page( 'index.php' ); //ダッシュボード
-  // remove_menu_page( 'edit.php' ); //投稿メニュー
-  // remove_menu_page( 'upload.php' ); //メディア
-  // remove_menu_page( 'edit.php?post_type=page' ); //固定ページ
-  remove_menu_page('edit-comments.php'); //コメントメニュー
-  // remove_menu_page( 'themes.php' ); //外観メニュー
-  // remove_menu_page( 'plugins.php' ); //プラグインメニュー
-  // remove_menu_page( 'users.php' );  // ユーザー
-  // remove_menu_page( 'edit.php?post_type=acf-field-group' ); //ACF
-  // remove_menu_page( 'tools.php' ); //ツールメニュー
-  // remove_menu_page( 'options-general.php' ); //設定メニュー
+function remove_menus() {
+    // remove_menu_page( 'index.php' ); //ダッシュボード
+    // remove_menu_page( 'edit.php' ); //投稿メニュー
+    // remove_menu_page( 'upload.php' ); //メディア
+    // remove_menu_page( 'edit.php?post_type=page' ); //固定ページ
+    remove_menu_page('edit-comments.php'); //コメントメニュー
+    // remove_menu_page( 'themes.php' ); //外観メニュー
+    // remove_menu_page( 'plugins.php' ); //プラグインメニュー
+    // remove_menu_page( 'users.php' );  // ユーザー
+    // remove_menu_page( 'edit.php?post_type=acf-field-group' ); //ACF
+    // remove_menu_page( 'tools.php' ); //ツールメニュー
+    // remove_menu_page( 'options-general.php' ); //設定メニュー
 }
 add_action('admin_menu', 'remove_menus');
 
@@ -99,21 +106,20 @@ add_action('admin_menu', 'remove_menus');
  *
  * @developer.wordpress https://developer.wordpress.org/reference/functions/remove_meta_box/
  */
-function my_remove_meta_boxes()
-{
-  // remove_meta_box('postexcerpt', 'post', 'normal');      // 抜粋
-  remove_meta_box('trackbacksdiv', 'post', 'normal');    // トラックバック
-  // remove_meta_box('slugdiv', 'post', 'normal');           // スラッグ
-  // remove_meta_box('postcustom', 'post', 'normal');       // カスタムフィールド
-  remove_meta_box('commentsdiv', 'post', 'normal');      // コメント
-  // remove_meta_box('submitdiv', 'post', 'normal');        // 公開
-  // remove_meta_box('categorydiv', 'post', 'normal');       // カテゴリー
-  // remove_meta_box('tagsdiv-post_tag', 'post', 'normal'); // タグ
-  remove_meta_box('commentstatusdiv', 'post', 'normal'); // ディスカッション
-  // remove_meta_box('authordiv', 'post', 'normal');        // 作成者
-  remove_meta_box('revisionsdiv', 'post', 'normal');     // リビジョン
-  // remove_meta_box('formatdiv', 'post', 'normal');        // フォーマット
-  // remove_meta_box('pageparentdiv', 'post', 'normal');    // 属性
+function my_remove_meta_boxes() {
+    // remove_meta_box('postexcerpt', 'post', 'normal');      // 抜粋
+    remove_meta_box('trackbacksdiv', 'post', 'normal');    // トラックバック
+    // remove_meta_box('slugdiv', 'post', 'normal');           // スラッグ
+    // remove_meta_box('postcustom', 'post', 'normal');       // カスタムフィールド
+    remove_meta_box('commentsdiv', 'post', 'normal');      // コメント
+    // remove_meta_box('submitdiv', 'post', 'normal');        // 公開
+    // remove_meta_box('categorydiv', 'post', 'normal');       // カテゴリー
+    // remove_meta_box('tagsdiv-post_tag', 'post', 'normal'); // タグ
+    remove_meta_box('commentstatusdiv', 'post', 'normal'); // ディスカッション
+    // remove_meta_box('authordiv', 'post', 'normal');        // 作成者
+    remove_meta_box('revisionsdiv', 'post', 'normal');     // リビジョン
+    // remove_meta_box('formatdiv', 'post', 'normal');        // フォーマット
+    // remove_meta_box('pageparentdiv', 'post', 'normal');    // 属性
 }
 add_action('admin_menu', 'my_remove_meta_boxes');
 
@@ -128,8 +134,8 @@ function Change_menulabel() {
     global $submenu;
     $name = 'ブログ';
     $menu[5][0] = $name;
-    $submenu['edit.php'][5][0] = $name.'一覧';
-    $submenu['edit.php'][10][0] = '新しい'.$name;
+    $submenu['edit.php'][5][0] = $name . '一覧';
+    $submenu['edit.php'][10][0] = '新しい' . $name;
 }
 function Change_objectlabel() {
     global $wp_post_types;
@@ -138,13 +144,13 @@ function Change_objectlabel() {
     $labels->name = $name;
     $labels->singular_name = $name;
     $labels->add_new = _x('追加', $name);
-    $labels->add_new_item = $name.'の新規追加';
-    $labels->edit_item = $name.'の編集';
-    $labels->new_item = '新規'.$name;
-    $labels->view_item = $name.'を表示';
-    $labels->search_items = $name.'を検索';
-    $labels->not_found = $name.'が見つかりませんでした';
-    $labels->not_found_in_trash = 'ゴミ箱に'.$name.'は見つかりませんでした';
+    $labels->add_new_item = $name . 'の新規追加';
+    $labels->edit_item = $name . 'の編集';
+    $labels->new_item = '新規' . $name;
+    $labels->view_item = $name . 'を表示';
+    $labels->search_items = $name . 'を検索';
+    $labels->not_found = $name . 'が見つかりませんでした';
+    $labels->not_found_in_trash = 'ゴミ箱に' . $name . 'は見つかりませんでした';
 }
-add_action( 'init', 'Change_objectlabel' );
-add_action( 'admin_menu', 'Change_menulabel' );
+add_action('init', 'Change_objectlabel');
+add_action('admin_menu', 'Change_menulabel');

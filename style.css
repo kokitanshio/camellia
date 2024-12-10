@@ -35,6 +35,12 @@ h2 {
 .thumbnail01 {
   height: 100%;
 }
+.thumbnail01__title {
+	color: #000; /*追加24.12.10*/
+}
+.thumbnail01__title-color01 {
+	color: #000; /*追加24.12.10*/
+}
 .thumbnail01__link {
   transition: opacity 0.3s ease;
   display: flex;
@@ -97,6 +103,52 @@ h2 {
 .p-postSlider__title {
   text-align: left;
   padding-left: 10px;
+}
+/* NEWSセクション 追加24.12.10 */
+.news__contents .l-article {
+	display: flex;
+	gap: 40px;
+}
+@media (max-width: 768px) {
+.news__contents .l-article {
+	  gap: 0px;
+    flex-direction: column;
+  }
+}
+/* 見出し高さの調整 */
+.news__contents .wp-block-heading {
+	height: fit-content;
+}
+/* newsの横幅調整 */
+.news__contents .wp-block-group {
+	width: 100%;
+}
+/* news内容を横並び */
+.news__contents .p-postList__body {
+	display: flex;
+	gap: calc(20 / 16 * 1rem);
+}
+/* About Us クリック範囲の調整 */
+.about-us__contents .p-postList__item {
+	margin-bottom: 0px;
+}
+/* セクションタイトル装飾 */
+.title-text__decoration01 {
+	position: relative !important;
+	width: fit-content;
+	padding-bottom: 1em !important;
+	margin-inline: auto !important;
+}
+.title-text__decoration01::after {
+	position: absolute;
+	bottom: 0px;
+	left: 50%;
+	transform: translateX(-50%);
+	content: "" !important;
+	display: block;
+	width: 50%;
+	height: 2px;
+	background-color: #073061;
 }
 
 /*------------------
@@ -336,4 +388,8 @@ label.contact-form__field-label,
 /* スピナー非表示 */
 .wpcf7-spinner {
   display: none;
+}
+/* プライバシー中央寄せ */
+.contact-form__privacy {
+	text-align: center; /*追加24.12.10*/
 }

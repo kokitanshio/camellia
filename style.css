@@ -27,6 +27,34 @@ h2 {
   margin-bottom: 0px;
 }
 
+/* ボタン共通スタイル 24.12.16*/
+.swell-block-button a {
+	color: rgba(0, 0, 0, 1);
+	border: 1px solid rgba(0, 0, 0, 0.4);
+	border-radius: 2px;
+	font-weight: 500;
+}
+
+/* 下層ページh1タイトル & 見出し高さ 24.12.16 */
+.c-pageTitle {
+	font-size: 2.5rem;
+}
+.l-topTitleArea {
+	min-height: 300px;
+}
+
+/* フッター ウィジェット余白消去 24.12.16 */
+.w-footer__box {
+	padding-bottom: 0px;
+}
+.l-footer__widgetArea {
+		padding-bottom: 0px;
+}
+/* フッター内SNSリンクサイズ変更 24.12.16 */
+.l-footer__foot .c-iconList__link {
+	font-size: 22px;
+}
+
 /*①カード型サムネイル リンク・ホバー機能の実装 & スタイル調整*/
 /*実装箇所：「サービス案内」 更新：24.11.22*/
 .swell-block-column.swl-has-mb--s {
@@ -96,15 +124,25 @@ h2 {
   background-color: #fff !important;
 }
 
+/* ③役員紹介 役員名の位置調整 24.12.16 */
+/* アンカー:officer-introduction */
+.officer-introduction .wp-block-cover {
+	position: relative;
+}
+.officer-introduction .wp-block-cover__inner-container {
+	position: absolute;
+	bottom: 50px;
+}
+
 /*------------------
 ２）TOP
 ------------------*/
 /* スライダータイトル */
 .p-postSlider__title {
-  text-align: left;
   padding-left: 10px;
 }
 /* NEWSセクション 追加24.12.10 */
+/* アンカー:news__contents */
 .news__contents .l-article {
 	display: flex;
 	gap: 40px;
@@ -128,7 +166,32 @@ h2 {
 	display: flex;
 	gap: calc(20 / 16 * 1rem);
 }
+
+/* TOP NEWSセクション 調整 24.12.16 */
+/* ターム位置調整 */
+.news__contents .c-postThumb__cat {
+	position: relative;
+}
+/* 日付-ターム間調整 */
+.news__contents .p-postList__meta {
+	display: flex;
+	gap: 20px;
+}
+/* ヘッド幅調整*/
+.news__contents .p-postList__meta {
+	min-width: 250px;
+}
+/* レスポンシブ調整 */
+@media (max-width: 768px) {
+.news__contents .p-postList__body {
+	flex-direction: column;
+	gap: 10px;
+}
+}
+
+
 /* About Us クリック範囲の調整 */
+/* アンカー:about-us__contents */
 .about-us__contents .p-postList__item {
 	margin-bottom: 0px;
 }

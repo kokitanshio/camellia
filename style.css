@@ -27,14 +27,6 @@ h2 {
   margin-bottom: 0px;
 }
 
-/* ボタン共通スタイル 24.12.16*/
-.swell-block-button a {
-	color: rgba(0, 0, 0, 1);
-	border: 1px solid rgba(0, 0, 0, 0.4);
-	border-radius: 2px;
-	font-weight: 500;
-}
-
 /* 下層ページh1タイトル & 見出し高さ 24.12.16 */
 .c-pageTitle {
 	font-size: 2.5rem;
@@ -456,3 +448,14 @@ label.contact-form__field-label,
 .contact-form__privacy {
 	text-align: center; /*追加24.12.10*/
 }
+
+
+/*------------------
+4）個別投稿ページ 24.12.17
+------------------*/
+/* 関連記事を4列表示にする */
+@media (min-width: 600px) {
+  .-related .p-postList__item{
+     width: calc(100% / 4);
+   }
+ }

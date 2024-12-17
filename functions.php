@@ -18,9 +18,8 @@ add_action('wp_enqueue_scripts', function () {
 
     $timestamp = date('Ymdgis', filemtime(get_stylesheet_directory() . '/style.css'));
     wp_enqueue_style('child_style', get_stylesheet_directory_uri() . '/style.css', [], $timestamp);
-	
-	/* その他の読み込みファイルはこの下に記述 */
-	
+
+    /* その他の読み込みファイルはこの下に記述 */
 }, 11);
 
 
@@ -29,37 +28,44 @@ add_action('wp_enqueue_scripts', function () {
 # Contact Form 7で自動挿入されるPタグ、brタグを削除
 =====================================================*/
 add_filter('wpcf7_autop_or_not', 'wpcf7_autop_return_false');
-  function wpcf7_autop_return_false() {
+function wpcf7_autop_return_false() {
     return false;
-  }
+}
 
 
 /*====================================================
 # カテゴリーとカスタムタクソノミー「news」のラベル表示
 =====================================================*/
-function swl_parts__post_list_category($args)
-{
+function swl_parts__post_list_category($args) {
     $the_id = $args['post_id'] ?? get_the_ID();
     $cat_data = get_the_category($the_id);
-$genre_data = get_the_terms($the_id, 'news-cat'); // 「news」に独自に設定したタクソノミースラッグを入れる
+    $genre_data = get_the_terms($the_id, 'news-cat'); // 「news」に独自に設定したタクソノミースラッグを入れる
 
-if (!empty($cat_data)) { // カテゴリーのラベル表示用
-  echo '<span class="c-postThumb__cat icon-folder" data-cat-id="' . $cat_data[0]->slug . '">' . $cat_data[0]->name . '</span>';
+    if (!empty($cat_data)) { // カテゴリーのラベル表示用
+        echo '<span class="c-postThumb__cat icon-folder" data-cat-id="' . $cat_data[0]->slug . '">' . $cat_data[0]->name . '</span>';
 
-  if (empty($cat_data)) {
-      return;
-  }
-}
+        if (empty($cat_data)) {
+            return;
+        }
+    }
 
 
     if (!empty($genre_data)) { // タームのラベル表示用
-		echo '<span class="c-postThumb__cat icon-folder" data-cat-id="' . $genre_data[0]->slug . '">' . $genre_data[0]->name . '</span>';
+        echo '<span class="c-postThumb__cat icon-folder" data-cat-id="' . $genre_data[0]->slug . '">' . $genre_data[0]->name . '</span>';
 
-		if (empty($genre_data)) {
+        if (empty($genre_data)) {
             return;
         }
     }
 }
+
+/*====================================================
+# 個別投稿ページの関連記事表示をデフォルト(8)から(4)に
+=====================================================*/
+function article_display() {
+    return 4;
+}
+add_filter('swell_related_post_maxnum', 'article_display');
 
 
 /**

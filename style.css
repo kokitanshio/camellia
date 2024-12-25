@@ -49,7 +49,7 @@ h2 {
 
 /*①カード型サムネイル リンク・ホバー機能の実装 & スタイル調整*/
 /*実装箇所：「サービス案内」 更新：24.11.22*/
-.swell-block-column.swl-has-mb--s {
+.thumbnail01 .swell-block-column.swl-has-mb--s {
   padding-bottom: 0px;
 }
 .thumbnail01 {
@@ -105,6 +105,43 @@ h2 {
 }
 .thumbnail01__button svg {
   fill: #fff;
+}
+
+/*カード型サムネイル 役員紹介 24.12.24*/
+.thumbnail02__heading {
+	position: relative;
+	display: flex;
+	flex-direction: column;
+	align-items: start;
+	gap: 0em;
+}
+.thumbnail02__heading::after {
+	content: "";
+	position: absolute;
+	top: 50%;
+	left: -16px;
+	transform: translateY(-50%);
+	display: block;
+	width: 2px;
+	height: 100%;
+	background-color: #0c6cbc;
+}
+
+.thumbnail02__tags {
+	margin-top: 0.4em;
+	display: flex;
+	flex-wrap: wrap;
+	gap: 0.4em;
+}
+.thumbnail02__tag {
+	color: #000000;
+	display: grid;
+	place-items: center;
+	padding-inline: 0.4em;
+	border: 1px solid #cccccc;
+	border-radius: 4px;
+	background-color: #ffffff;
+	font-size: 0.6em;
 }
 
 /*②Q&A項目の背景色 */
@@ -459,3 +496,7 @@ label.contact-form__field-label,
      width: calc(100% / 4);
    }
  }
+ /* 個別投稿ページのコンテンツ下余白 24.12.24*/
+.single #content {
+	margin-bottom: 80px;
+}

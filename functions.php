@@ -22,8 +22,6 @@ add_action('wp_enqueue_scripts', function () {
     /* その他の読み込みファイルはこの下に記述 */
 }, 11);
 
-
-
 /*====================================================
 # Contact Form 7で自動挿入されるPタグ、brタグを削除
 =====================================================*/
@@ -57,6 +55,20 @@ function swl_parts__post_list_category($args) {
             return;
         }
     }
+}
+
+/*====================================================
+# サイドバー 日付アーカイブ ページに適した内容に変更
+=====================================================*/
+add_filter( 'widget_archives_args', 'my_widget_archives_args', 10, 1);
+add_filter( 'widget_archives_dropdown_args', 'my_widget_archives_args', 10, 1);
+function my_widget_archives_args( $args ){
+    if ( ! is_admin() ) {
+        if ( 'news' == get_post_type() || is_post_type_archive('news') ) {
+            $args['post_type'] = 'news';
+        }
+    }
+    return $args;
 }
 
 /*====================================================

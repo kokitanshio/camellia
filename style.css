@@ -29,22 +29,22 @@ h2 {
 
 /* 下層ページh1タイトル & 見出し高さ 24.12.16 */
 .c-pageTitle {
-	font-size: 2.5rem;
+  font-size: 2.5rem;
 }
 .l-topTitleArea {
-	min-height: 300px;
+  min-height: 300px;
 }
 
 /* フッター ウィジェット余白消去 24.12.16 */
 .w-footer__box {
-	padding-bottom: 0px;
+  padding-bottom: 0px;
 }
 .l-footer__widgetArea {
-		padding-bottom: 0px;
+  padding-bottom: 0px;
 }
 /* フッター内SNSリンクサイズ変更 24.12.16 */
 .l-footer__foot .c-iconList__link {
-	font-size: 22px;
+  font-size: 22px;
 }
 
 /*①カード型サムネイル リンク・ホバー機能の実装 & スタイル調整*/
@@ -56,13 +56,19 @@ h2 {
   height: 100%;
 }
 .thumbnail01__title {
-	color: #000; /*追加24.12.10*/
+  color: #000; /*追加24.12.10*/
 }
 .thumbnail01__title-color01 {
-	color: #000; /*追加24.12.10*/
+  color: #000; /*追加24.12.10*/
 }
 .thumbnail01__link {
   transition: opacity 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+}
+.thumbnail01__link--no-action {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -109,39 +115,147 @@ h2 {
 
 /*カード型サムネイル 役員紹介 24.12.24*/
 .thumbnail02__heading {
-	position: relative;
-	display: flex;
-	flex-direction: column;
-	align-items: start;
-	gap: 0em;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  gap: 0em;
 }
 .thumbnail02__heading::after {
-	content: "";
-	position: absolute;
-	top: 50%;
-	left: -16px;
-	transform: translateY(-50%);
-	display: block;
-	width: 2px;
-	height: 100%;
-	background-color: #0c6cbc;
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: -16px;
+  transform: translateY(-50%);
+  display: block;
+  width: 2px;
+  height: 100%;
+  background-color: #0c6cbc;
 }
 
 .thumbnail02__tags {
-	margin-top: 0.4em;
-	display: flex;
-	flex-wrap: wrap;
-	gap: 0.4em;
+  margin-top: 0.4em;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4em;
 }
 .thumbnail02__tag {
-	color: #000000;
-	display: grid;
-	place-items: center;
-	padding-inline: 0.4em;
-	border: 1px solid #cccccc;
-	border-radius: 4px;
-	background-color: #ffffff;
-	font-size: 0.6em;
+  color: #000000;
+  display: grid;
+  place-items: center;
+  padding-inline: 0.4em;
+  border: 1px solid #cccccc;
+  border-radius: 4px;
+  background-color: #ffffff;
+  font-size: 0.6em;
+}
+
+/*カード型サムネイル③ コンサルティング実績 24.1.20*/
+.case__contents > .wp-block-group__inner-container {
+  display: flex;
+  gap: 40px;
+}
+@media (max-width: 768px) {
+  .case__contents > .wp-block-group__inner-container {
+    gap: 0px;
+    flex-direction: column;
+  }
+}
+.case__contents .p-postListWrap {
+  width: 100%;
+}
+/* 見出し高さの調整 */
+.case__contents .wp-block-heading {
+  height: fit-content;
+}
+/* newsの横幅調整 */
+.case__contents .wp-block-group {
+  width: 100%;
+}
+/* news内容を横並び */
+.case__contents .p-postList__body {
+  display: flex;
+  gap: calc(20 / 16 * 1rem);
+}
+.case__contents .wp-block-heading {
+  max-width: 270px;
+  @media (max-width: 768px) {
+    max-width: none;
+  }
+}
+.thumbnail03__wrapper .swell-block-columns__inner {
+  display: flex;
+  flex-direction: column;
+  @media (max-width: 768px) {
+    flex-direction: row;
+  }
+}
+.thumbnail03__wrapper .swell-block-column {
+  width: 100%;
+}
+
+.thumbnail03 .swell-block-column.swl-has-mb--s {
+  padding-bottom: 0px;
+}
+
+.thumbnail03 {
+  height: 100%;
+}
+.thumbnail03__link {
+  transition: opacity 0.3s ease;
+}
+.thumbnail03__container {
+  display: flex;
+}
+.thumbnail03__link:hover {
+  opacity: 0.6;
+}
+.thumbnail03__img {
+  flex: 1;
+}
+.thumbnail03__img img {
+  width: 100%;
+  height: 100%;
+  aspect-ratio: 300 / 200;
+  object-fit: cover;
+}
+.thumbnail03__texts {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  gap: 20px;
+  padding-inline: 1em;
+  padding-top: 1em;
+  padding-bottom: 1em;
+}
+.thumbnail03__title {
+  color: #000; /*追加24.12.10*/
+  text-align: center;
+  font-size: 1.1em;
+  font-weight: 600;
+  padding-top: 0.2em;
+}
+.thumbnail03__title-color01 {
+  color: #000; /*追加24.12.10*/
+}
+.thumbnail03__text {
+  font-size: 0.9em;
+  color: #333;
+}
+.thumbnail03__button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.2em;
+  font-size: 0.9em;
+  padding-block: 0.5em;
+  text-align: center;
+  background-color: #0c6cbc;
+  color: #fff;
+}
+.thumbnail03__button svg {
+  fill: #fff;
 }
 
 /*②Q&A項目の背景色 */
@@ -156,11 +270,11 @@ h2 {
 /* ③役員紹介 役員名の位置調整 24.12.16 */
 /* アンカー:officer-introduction */
 .officer-introduction .wp-block-cover {
-	position: relative;
+  position: relative;
 }
 .officer-introduction .wp-block-cover__inner-container {
-	position: absolute;
-	bottom: 50px;
+  position: absolute;
+  bottom: 50px;
 }
 
 /*------------------
@@ -172,75 +286,77 @@ h2 {
 }
 /* NEWSセクション 追加24.12.10 */
 /* アンカー:news__contents */
-.news__contents .l-article {
-	display: flex;
-	gap: 40px;
+.news__contents > .wp-block-group__inner-container {
+  display: flex;
+  gap: 40px;
 }
 @media (max-width: 768px) {
-.news__contents .l-article {
-	  gap: 0px;
+  .news__contents > .wp-block-group__inner-container {
+    gap: 0px;
     flex-direction: column;
   }
 }
+.news__contents .p-postListWrap {
+  width: 100%;
+}
 /* 見出し高さの調整 */
 .news__contents .wp-block-heading {
-	height: fit-content;
+  height: fit-content;
 }
 /* newsの横幅調整 */
 .news__contents .wp-block-group {
-	width: 100%;
+  width: 100%;
 }
 /* news内容を横並び */
 .news__contents .p-postList__body {
-	display: flex;
-	gap: calc(20 / 16 * 1rem);
+  display: flex;
+  gap: calc(20 / 16 * 1rem);
 }
 
 /* TOP NEWSセクション 調整 24.12.16 */
 /* ターム位置調整 */
 .news__contents .c-postThumb__cat {
-	position: relative;
+  position: relative;
 }
 /* 日付-ターム間調整 */
 .news__contents .p-postList__meta {
-	display: flex;
-	gap: 20px;
+  display: flex;
+  gap: 20px;
 }
 /* ヘッド幅調整*/
 .news__contents .p-postList__meta {
-	min-width: 250px;
+  min-width: 250px;
 }
 /* レスポンシブ調整 */
 @media (max-width: 768px) {
-.news__contents .p-postList__body {
-	flex-direction: column;
-	gap: 10px;
+  .news__contents .p-postList__body {
+    flex-direction: column;
+    gap: 10px;
+  }
 }
-}
-
 
 /* About Us クリック範囲の調整 */
 /* アンカー:about-us__contents */
 .about-us__contents .p-postList__item {
-	margin-bottom: 0px;
+  margin-bottom: 0px;
 }
 /* セクションタイトル装飾 */
 .title-text__decoration01 {
-	position: relative !important;
-	width: fit-content;
-	padding-bottom: 1em !important;
-	margin-inline: auto !important;
+  position: relative !important;
+  width: fit-content;
+  padding-bottom: 1em !important;
+  margin-inline: auto !important;
 }
 .title-text__decoration01::after {
-	position: absolute;
-	bottom: 0px;
-	left: 50%;
-	transform: translateX(-50%);
-	content: "" !important;
-	display: block;
-	width: 50%;
-	height: 2px;
-	background-color: #073061;
+  position: absolute;
+  bottom: 0px;
+  left: 50%;
+  transform: translateX(-50%);
+  content: "" !important;
+  display: block;
+  width: 50%;
+  height: 2px;
+  background-color: #073061;
 }
 
 /*------------------
@@ -420,7 +536,7 @@ label.contact-form__field-label,
 }
 .contact-form__privacy-link {
   text-decoration: underline;
-  transition: opacity .3s ease;
+  transition: opacity 0.3s ease;
 }
 .contact-form__privacy-link:hover {
   opacity: 0.7;
@@ -450,7 +566,7 @@ label.contact-form__field-label,
   opacity: 0.8;
 }
 .contact-form__submit-button:disabled,
-.contact-form__submit-button:disabled:hover  {
+.contact-form__submit-button:disabled:hover {
   cursor: not-allowed;
   opacity: 0.4;
 }
@@ -474,7 +590,7 @@ label.contact-form__field-label,
   }
 }
 .p-contact-form__radio + .wpcf7-not-valid-tip,
-.contact-form__textarea + .wpcf7-not-valid-tip{
+.contact-form__textarea + .wpcf7-not-valid-tip {
   bottom: calc(-25 / 16 * 1rem);
 }
 /* スピナー非表示 */
@@ -483,20 +599,165 @@ label.contact-form__field-label,
 }
 /* プライバシー中央寄せ */
 .contact-form__privacy {
-	text-align: center; /*追加24.12.10*/
+  text-align: center; /*追加24.12.10*/
 }
-
 
 /*------------------
 4）個別投稿ページ 24.12.17
 ------------------*/
 /* 関連記事を4列表示にする */
 @media (min-width: 600px) {
-  .-related .p-postList__item{
-     width: calc(100% / 4);
-   }
- }
- /* 個別投稿ページのコンテンツ下余白 24.12.24*/
+  .-related .p-postList__item {
+    width: calc(100% / 4);
+  }
+}
+/* 個別投稿ページのコンテンツ下余白 24.12.24*/
 .single #content {
-	margin-bottom: 80px;
+  margin-bottom: 80px;
+}
+
+/*------------------
+5）パンクズリスト 25.1.21
+------------------*/
+/* パンクズリスト フォントサイズ */
+.p-breadcrumb__list {
+  font-size: 12px;
+}
+@media (min-width: 600px) {
+  .p-breadcrumb__list {
+    font-size: 14px;
+  }
+}
+/* パンクズリストの折り返し設定 */
+/* 1つ目以降のみ折り返し */
+.p-breadcrumb__item:nth-of-type(n + 2) .p-breadcrumb__text {
+  white-space: normal;
+}
+/*------------------
+6）ボタンスタイルの統一 25.1.21
+------------------*/
+/* ボタンスタイルの統一 */
+.c-btn_style01 {
+  max-width: 300px;
+}
+@media (max-width: 375px) {
+  .c-btn_style01 {
+    max-width: 240px;
+  }
+}
+.c-btn_style01 a {
+  width: 100%;
+  padding: 0.8em 1em;
+  font-size: 0.8em;
+}
+/*------------------
+7）TOP ブログコンテンツ 25.1.21
+------------------*/
+/* トップ ブログ */
+.blog__contents > .wp-block-group__inner-container {
+  display: flex;
+  gap: 40px;
+}
+@media (max-width: 768px) {
+  .blog__contents > .wp-block-group__inner-container {
+    gap: 0px;
+    flex-direction: column;
+  }
+}
+/* 見出し高さの調整 */
+.blog__contents .wp-block-heading {
+  height: fit-content;
+  min-width: 120px;
+}
+/* タイトルの横幅調整 */
+.blog__contents .wp-block-group {
+  width: 100%;
+}
+/*------------------
+8）社員紹介 25.1.21
+------------------*/
+/* 社員紹介 */
+.p-employee__wrapper .swell-block-columns__inner {
+  justify-content: center;
+}
+/*------------------
+9）スマホメニュー 25.1.21
+------------------*/
+/* スマホメニュー */
+/* デフォルトのメニューを削除 */
+.c-widget__title.-spmenu,
+.p-spMenu__nav {
+  display: none;
+}
+.p-spMenu__body {
+  margin-top: -20px;
+}
+.swell-block-accordion__body a {
+  width: 100%;
+  display: block;
+}
+.l-header-sp__title {
+  padding: 0.4em 1em !important;
+}
+.l-header-sp__menu {
+  align-items: center;
+  cursor: pointer;
+  display: flex;
+  font-weight: 400;
+  justify-content: space-between;
+  border-bottom: 1px solid var(--color_border);
+}
+.l-header-sp__menu a {
+  display: block;
+  padding: 1em;
+  width: 100%;
+}
+/* ホームのボーダー削除 */
+.l-header-sp__menu.border__none-bottom {
+  border-bottom: none;
+}
+
+/*------------------
+10）フッター 25.1.21
+------------------*/
+/* フッターのギャップ */
+.l-footer__menu .wp-block-group__inner-container,
+.l-footer__menu .swell-block-accordion__item {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4em;
+}
+.l-footer__menu .swell-block-accordion__label {
+  max-width: 300px;
+}
+/* フッターメニュートグル */
+.l-footer__menu .wp-block-group__inner-container p,
+.l-footer__menu .swell-block-accordion__item span {
+  font-size: 16px;
+  margin-bottom: 0px !important;
+}
+.l-footer__menu .swell-block-accordion__item {
+  margin-bottom: 0px;
+  margin-top: 0px;
+}
+.l-footer__menu .swell-block-accordion__title {
+  padding: 0px;
+  background: inherit !important;
+}
+.l-footer__menu .swell-block-accordion__body {
+  padding: 0.2em 1em;
+  margin-bottom: 0.8em;
+}
+.l-footer__menu .swell-block-accordion__body p {
+  font-size: 14px;
+  margin-bottom: 0px;
+}
+
+.l-footer__menu .swell-block-accordion__title {
+  justify-content: start;
+}
+/* フッターの調整 */
+.l-footer__menu .swell-block-columns__inner {
+  margin-left: auto;
+  justify-content: end;
 }

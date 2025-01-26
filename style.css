@@ -151,53 +151,55 @@ h2 {
 }
 
 /*カード型サムネイル③ コンサルティング実績 24.1.20*/
-.case__contents > .wp-block-group__inner-container {
-  display: flex;
-  gap: 40px;
-}
 @media (max-width: 768px) {
   .case__contents > .wp-block-group__inner-container {
-    gap: 0px;
+    display: flex;
     flex-direction: column;
   }
-}
-.case__contents .p-postListWrap {
-  width: 100%;
-}
-/* 見出し高さの調整 */
-.case__contents .wp-block-heading {
-  height: fit-content;
-}
-/* newsの横幅調整 */
-.case__contents .wp-block-group {
-  width: 100%;
-}
-/* news内容を横並び */
-.case__contents .p-postList__body {
-  display: flex;
-  gap: calc(20 / 16 * 1rem);
-}
-.case__contents .wp-block-heading {
-  max-width: 270px;
-  @media (max-width: 768px) {
+  .case__contents .p-postListWrap {
+    width: 100%;
+  }
+  /* 見出し高さの調整 */
+  .case__contents .wp-block-heading {
+    height: fit-content;
+  }
+  /* 実績の横幅調整 */
+  .case__contents .wp-block-group {
+    width: 100%;
+  }
+  /* 実績内容を横並び */
+  .case__contents .p-postList__body {
+    display: flex;
+    gap: calc(20 / 16 * 1rem);
+  }
+  .case__contents .wp-block-heading {
+    max-width: 270px;
+  }
+  .case__contents .wp-block-heading {
     max-width: none;
   }
 }
 .thumbnail03__wrapper .swell-block-columns__inner {
   display: flex;
-  flex-direction: column;
-  @media (max-width: 768px) {
-    flex-direction: row;
+  flex-direction: row;
+  justify-content: space-between;
+}
+@media (max-width: 768px) {
+  .thumbnail03__wrapper .swell-block-columns__inner {
+    flex-direction: column;
   }
 }
-.thumbnail03__wrapper .swell-block-column {
-  width: 100%;
+.case__contents .swell-block-column {
+  width: calc(100% / 3 - var(--swl-clmn-mrgn--x));
 }
-
+@media (max-width: 768px) {
+  .case__contents .swell-block-column {
+    width: calc(100% - var(--swl-clmn-mrgn--x));
+  }
+}
 .thumbnail03 .swell-block-column.swl-has-mb--s {
   padding-bottom: 0px;
 }
-
 .thumbnail03 {
   height: 100%;
 }
@@ -206,6 +208,12 @@ h2 {
 }
 .thumbnail03__container {
   display: flex;
+  flex-direction: column;
+}
+@media (max-width: 768px) {
+  .thumbnail03__container {
+    flex-direction: row;
+  }
 }
 .thumbnail03__link:hover {
   opacity: 0.6;
@@ -223,11 +231,17 @@ h2 {
   flex: 1;
   display: flex;
   flex-direction: column;
-  align-items: start;
-  gap: 20px;
+  align-items: center;
+  gap: 10px;
   padding-inline: 1em;
-  padding-top: 1em;
   padding-bottom: 1em;
+}
+@media (max-width: 768px) {
+  .thumbnail03__texts {
+    align-items: start;
+    padding-top: 1em;
+    gap: 20px;
+  }
 }
 .thumbnail03__title {
   color: #000; /*追加24.12.10*/
@@ -617,7 +631,7 @@ label.contact-form__field-label,
 }
 
 /*------------------
-5）パンクズリスト 25.1.21
+5）パンクズ 25.1.26
 ------------------*/
 /* パンクズリスト フォントサイズ */
 .p-breadcrumb__list {
@@ -628,13 +642,12 @@ label.contact-form__field-label,
     font-size: 14px;
   }
 }
-/* パンクズリストの折り返し設定 */
-/* 1つ目以降のみ折り返し */
-.p-breadcrumb__item:nth-of-type(n + 2) .p-breadcrumb__text {
-  white-space: normal;
+.p-breadcrumb__list {
+  flex-wrap: wrap;
 }
+
 /*------------------
-6）ボタンスタイルの統一 25.1.21
+6）ボタンスタイル 25.1.26
 ------------------*/
 /* ボタンスタイルの統一 */
 .c-btn_style01 {
@@ -650,8 +663,9 @@ label.contact-form__field-label,
   padding: 0.8em 1em;
   font-size: 0.8em;
 }
+
 /*------------------
-7）TOP ブログコンテンツ 25.1.21
+7）TOP ブログコンテンツ 25.1.26
 ------------------*/
 /* トップ ブログ */
 .blog__contents > .wp-block-group__inner-container {
@@ -664,6 +678,7 @@ label.contact-form__field-label,
     flex-direction: column;
   }
 }
+
 /* 見出し高さの調整 */
 .blog__contents .wp-block-heading {
   height: fit-content;
@@ -673,15 +688,50 @@ label.contact-form__field-label,
 .blog__contents .wp-block-group {
   width: 100%;
 }
+/* トップ ブログ 1/23 */
+@media (max-width: 768px) {
+  .blog__contents .wp-block-columns {
+    gap: 0px;
+  }
+  .blog__contents .p-postList__link {
+    display: flex;
+    gap: 1em;
+  }
+  .blog__contents .p-postList__thumb {
+    max-width: 300px;
+  }
+  .blog__contents .c-postThumb__figure {
+    height: 100%;
+  }
+  .blog__contents img {
+    object-fit: cover;
+  }
+}
+
 /*------------------
-8）社員紹介 25.1.21
+7）TOP 社員紹介 25.1.26
 ------------------*/
 /* 社員紹介 */
 .p-employee__wrapper .swell-block-columns__inner {
   justify-content: center;
 }
+/* トップ 役員紹介 1/23 */
+@media (max-width: 768px) {
+  .officer-introduction .wp-block-cover__inner-container {
+    bottom: 10%;
+  }
+  .officer-introduction .wp-block-cover {
+    min-height: 280px;
+  }
+  .officer-introduction .wp-block-cover p {
+    font-size: 0.8em !important;
+    margin-bottom: 0px;
+  }
+}
+
+
 /*------------------
-9）スマホメニュー 25.1.21
+7）SPメニュー 25.1.26
 ------------------*/
 /* スマホメニュー */
 /* デフォルトのメニューを削除 */
@@ -716,9 +766,17 @@ label.contact-form__field-label,
 .l-header-sp__menu.border__none-bottom {
   border-bottom: none;
 }
+/* アコーディオン */
+.p-accordion .swell-block-accordion__title {
+  padding-left: 0px;
+  padding-right: 0px;
+  padding-top: 0.4em;
+  padding-bottom: 0.4em;
+}
+
 
 /*------------------
-10）フッター 25.1.21
+8）フッターメニュー 25.1.26
 ------------------*/
 /* フッターのギャップ */
 .l-footer__menu .wp-block-group__inner-container,
@@ -736,6 +794,7 @@ label.contact-form__field-label,
   font-size: 16px;
   margin-bottom: 0px !important;
 }
+
 .l-footer__menu .swell-block-accordion__item {
   margin-bottom: 0px;
   margin-top: 0px;
@@ -761,3 +820,7 @@ label.contact-form__field-label,
   margin-left: auto;
   justify-content: end;
 }
+
+
+
+

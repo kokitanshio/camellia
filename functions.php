@@ -30,7 +30,29 @@ function wpcf7_autop_return_false() {
     return false;
 }
 
-
+/*====================================================
+# トグルメニュー リンク遷移優先、アイコンクリックで開閉
+=====================================================*/
+add_action('wp_footer', 'custom_toggle_link_script');
+function custom_toggle_link_script() {
+   ?>
+   <script>
+   document.addEventListener('click', function(event) {
+       var accordionTitle = event.target.closest('.swell-block-accordion__title');
+       var iconButton = event.target.closest('.c-switchIconBtn');
+       
+       if (accordionTitle && !iconButton) {
+           var link = accordionTitle.querySelector('a');
+           if (link) {
+               window.location.href = link.href;
+               event.preventDefault();
+               event.stopPropagation();
+           }
+       }
+   }, true);
+   </script>
+   <?php
+}
 /*====================================================
 # カテゴリーとカスタムタクソノミー「news」のラベル表示
 =====================================================*/

@@ -278,7 +278,7 @@ h2 {
   background-color: #f2f7fd !important;
 }
 .faq_a {
-  background-color: #fff !important;
+  background-color: #fdfdfd !important;
 }
 
 /* ③役員紹介 役員名の位置調整 24.12.16 */
@@ -450,13 +450,8 @@ h2 {
   }
 }
 .contact-form__field-label {
-  font-size: calc(20 / 16 * 1rem);
+  font-size: 16px;
   font-weight: 600;
-}
-@media screen and (max-width: 767px) {
-  .contact-form__field-label {
-    font-size: calc(18 / 16 * 1rem);
-  }
 }
 label.contact-form__field-label,
 .p-contact-form__radio label,
@@ -469,7 +464,7 @@ label.contact-form__field-label,
   border-radius: 50px;
   background-color: #0c6cbc;
   color: #fff;
-  font-size: calc(12 / 16 * 1rem);
+  font-size: 12px;
   font-weight: 600;
   width: fit-content;
   display: grid;
@@ -477,7 +472,7 @@ label.contact-form__field-label,
 }
 @media screen and (max-width: 767px) {
   .contact-form__field-tag {
-    font-size: calc(10 / 16 * 1rem);
+    font-size: 10px;
   }
 }
 .contact-form__field-item {
@@ -493,7 +488,7 @@ label.contact-form__field-label,
   border-radius: 4px;
   background-color: #eee;
   width: 100%;
-  font-size: calc(18 / 16 * 1rem);
+  font-size: 16px;
   font-weight: 400;
   line-height: calc(27 / 18 * 1em);
   letter-spacing: calc(0.9 / 18 * 1em);
@@ -502,7 +497,7 @@ label.contact-form__field-label,
   .contact-form__input {
     padding-top: calc(12 / 16 * 1rem);
     padding-bottom: calc(12 / 16 * 1rem);
-    font-size: calc(14 / 16 * 1rem);
+    font-size: 16px;
     line-height: calc(21 / 14 * 1em);
     letter-spacing: calc(0.7 / 14 * 1em);
   }
@@ -525,19 +520,19 @@ label.contact-form__field-label,
   }
 }
 .p-contact-form__radio label {
-  font-size: calc(20 / 16 * 1rem);
+  font-size: 16px;
   display: flex;
   gap: calc(4 / 16 * 1rem);
   align-items: center;
 }
 @media screen and (max-width: 767px) {
   .p-contact-form__radio label {
-    font-size: calc(18 / 16 * 1rem);
+    font-size: 16px;
   }
 }
 /* プライバシーポリシー */
 .contact-form__privacy {
-  font-size: calc(20 / 16 * 1rem);
+  font-size: 16px;
 }
 .contact-form__privacy input {
   cursor: pointer;
@@ -565,7 +560,7 @@ label.contact-form__field-label,
   border-radius: 50px;
   background-color: #0c6cbc;
   color: #fff;
-  font-size: calc(18 / 16 * 1rem);
+  font-size: 16px;
   font-weight: 600;
   outline: 1px solid transparent;
   transition: opacity 0.3s ease;
@@ -573,7 +568,7 @@ label.contact-form__field-label,
 @media screen and (max-width: 767px) {
   .contact-form__submit-button {
     padding: calc(10 / 16 * 1rem) calc(100 / 16 * 1rem);
-    font-size: calc(14 / 16 * 1rem);
+    font-size: 16px;
   }
 }
 .contact-form__submit-button:hover {
@@ -589,12 +584,12 @@ label.contact-form__field-label,
 }
 /* エラーメッセージ */
 .wpcf7-not-valid-tip {
-  font-size: calc(16 / 16 * 1rem);
+  font-size: 16px;
   bottom: calc(-50 / 16 * 1rem);
 }
 @media screen and (max-width: 767px) {
   .wpcf7-not-valid-tip {
-    font-size: calc(14 / 16 * 1rem);
+    font-size: 16px;
     bottom: calc(-40 / 16 * 1rem);
   }
 }
@@ -645,39 +640,47 @@ label.contact-form__field-label,
 .p-breadcrumb__list {
   flex-wrap: wrap;
 }
+/* パンクズスタイル調整 25.2.23 */
+.p-breadcrumb.-bg-on {
+	box-shadow: none !important;
+	background: none!important;
+}
 
 /*------------------
 6）ボタンスタイル 25.1.26
 ------------------*/
 /* ボタンスタイルの統一 */
-.c-btn_style01 {
+.c-btn_style01,
+.c-ttl404 + .post_content .is-style-more_btn {
   max-width: 300px;
 }
 @media (max-width: 375px) {
-  .c-btn_style01 {
+  .c-btn_style01,
+  .c-ttl404 + .post_content .is-style-more_btn {
     max-width: 240px;
   }
 }
-.c-btn_style01 a {
+.c-btn_style01 a,
+.c-ttl404 + .post_content .is-style-more_btn a {
   width: 100%;
   padding: 0.8em 1em;
-  font-size: 0.8em;
+  font-size: 1rem;
 }
 
 /*------------------
 7）TOP ブログコンテンツ 25.1.26
 ------------------*/
 /* トップ ブログ */
-.blog__contents > .wp-block-group__inner-container {
+/* .blog__contents > .wp-block-group__inner-container {
   display: flex;
   gap: 40px;
-}
-@media (max-width: 768px) {
+} */
+/* @media (max-width: 768px) {
   .blog__contents > .wp-block-group__inner-container {
     gap: 0px;
     flex-direction: column;
   }
-}
+} */
 
 /* 見出し高さの調整 */
 .blog__contents .wp-block-heading {
@@ -697,15 +700,34 @@ label.contact-form__field-label,
     display: flex;
     gap: 1em;
   }
-  .blog__contents .p-postList__thumb {
+  
+  .blog__contents .p-postList__thumb,
+  .blog__contents .p-postListWrap {
     max-width: 300px;
+	min-width: 30%; 
+	width: 100%;
   }
   .blog__contents .c-postThumb__figure {
     height: 100%;
   }
   .blog__contents img {
     object-fit: cover;
+/* 	max-height: 300px; */
+	width: 100%;
   }
+}
+
+/* TOP ブログ タイトルとコンテンツの並び */
+@media (max-width: 768px) {
+.blog__contents-group .wp-block-group__inner-container.is-layout-constrained.wp-block-group-is-layout-constrained {
+    display: grid;
+    grid-template-columns: 50% 50%;
+    gap: 16px;
+    align-items: center;
+}
+.blog__contents .swell-block-columns {
+	--swl-clmn-mrgn--x: 0 !important;
+}
 }
 
 /*------------------
@@ -727,6 +749,10 @@ label.contact-form__field-label,
     font-size: 0.8em !important;
     margin-bottom: 0px;
   }
+}
+/* 社員紹介 画像オーバーレイ 25.1.29 */
+.officer-introduction .wp-block-cover__background.has-background-dim {
+ background:	linear-gradient(to bottom, transparent 0%, black 100%);
 }
 
 
@@ -820,7 +846,49 @@ label.contact-form__field-label,
   margin-left: auto;
   justify-content: end;
 }
+/* フッターロゴ クリック幅調整 25.2.23 */
+.l-footer-logo a {
+	width: fit-content;
+	margin-inline: auto;
+}
 
+/*------------------
+9）ヘッダーメニュー
+------------------*/
+/* ヘッダーメニュー調整（PC）25.2.23 */
+.mega-menu > .mega-menu-item > .mega-sub-menu {
+	top: 112px !important;
+}
 
+/*------------------
+10）404ページ
+------------------*/
+/* 404ページ余白調整 25.2.23 */
+.c-ttl404 + .post_content {
+	margin-bottom: 100px !important;
+}
 
-
+/*------------------
+11）画像調整
+------------------*/
+/*画像クリックのポップアップ禁止 25.2.23*/
+.wp-block-image img {
+	pointer-events: none !important;
+}
+/*画像のアスペクト固定 25.2.23*/
+img {
+	aspect-ratio: 100 / 80 !important;
+	object-fit: cover;
+}
+/*代表画像のアスペクト固定 25.2.23*/
+.p-aspect-image-pc img {
+	aspect-ratio: 350 / 470 !important;
+}
+.p-aspect-image-sp img {
+	aspect-ratio: 350 / 500 !important;
+}
+/*ヘッダーロゴのアスペクト固定 25.2.23*/
+.l-header__logo img,
+.l-fixHeader__logo img {
+	aspect-ratio: 240 / 80 !important;
+}

@@ -31,6 +31,16 @@ function wpcf7_autop_return_false() {
 }
 
 /*====================================================
+# アーカイブメニューにMV追加
+=====================================================*/
+add_filter( 'swell_is_show_ttltop', function( $is_show_ttltop ) {
+    if ( is_post_type_archive() ) {
+        return true;
+    }
+    return $is_show_ttltop;
+});
+
+/*====================================================
 # トグルメニュー リンク遷移優先、アイコンクリックで開閉
 =====================================================*/
 add_action('wp_footer', 'custom_toggle_link_script');

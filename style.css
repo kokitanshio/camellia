@@ -645,7 +645,6 @@ label.contact-form__field-label,
 	box-shadow: none !important;
 	background: none!important;
 }
-
 /*------------------
 6）ボタンスタイル 25.1.26
 ------------------*/
@@ -746,7 +745,7 @@ label.contact-form__field-label,
     min-height: 280px;
   }
   .officer-introduction .wp-block-cover p {
-    font-size: 0.8em !important;
+    font-size: 0.8em;
     margin-bottom: 0px;
   }
 }
@@ -834,7 +833,7 @@ label.contact-form__field-label,
   margin-bottom: 0.8em;
 }
 .l-footer__menu .swell-block-accordion__body p {
-  font-size: 14px;
+  font-size: 16px; /* 14px→16pxに変更 25.3.1 */
   margin-bottom: 0px;
 }
 
@@ -861,11 +860,25 @@ label.contact-form__field-label,
 }
 
 /*------------------
-10）404ページ
+10）余白調整
 ------------------*/
 /* 404ページ余白調整 25.2.23 */
-.c-ttl404 + .post_content {
+/* 検索ページ余白調整 25.2.26 */
+.c-ttl404 + .post_content,
+.search .l-content {
 	margin-bottom: 100px !important;
+}
+/* ブログ新着一覧、カテゴリー/アーカイブページ余白調整 25.3.1 */
+.archive.category .l-container,
+.blog .l-container {
+	margin-bottom: 100px !important;
+}
+#sidebar {
+	margin-bottom: 100px !important;
+}
+/* ブログ一覧 余白調整 25.3.1 */
+.page-template-default .l-container {
+	margin-bottom: 0px !important;
 }
 
 /*------------------

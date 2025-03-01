@@ -745,7 +745,7 @@ label.contact-form__field-label,
     min-height: 280px;
   }
   .officer-introduction .wp-block-cover p {
-    font-size: 0.8em !important;
+    font-size: 0.8em;
     margin-bottom: 0px;
   }
 }

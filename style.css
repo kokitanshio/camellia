@@ -905,3 +905,30 @@ img {
 .l-fixHeader__logo img {
 	aspect-ratio: 240 / 80 !important;
 }
+
+
+/*------------------
+12）実績リストの作成
+------------------*/
+.achievements{
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+.thumbnail03{
+  background-color: #fff;
+  box-shadow: var(--swl-box_shadow);
+  color: #333;
+}
+
+.achievements-list{
+  display: grid;
+  gap: 40px;
+}
+
+@media (max-width: 768px) {
+  .achievements{
+    grid-template-columns: 1fr;
+  }
+}

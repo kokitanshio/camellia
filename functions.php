@@ -234,3 +234,58 @@ function Change_objectlabel() {
 }
 add_action('init', 'Change_objectlabel');
 add_action('admin_menu', 'Change_menulabel');
+
+
+// 実績一覧を呼び出すためのショートコード
+function achievements_list_func($atts){
+  extract(shortcode_atts(array( // 引数の値を取得
+        'post_type' => 'philippines' // 投稿タイプの値、引数の指定がなければ指定の値を格納
+    ), $atts));
+    global $post;
+    $args = array(
+        'post_type' => 'achievements',
+        'posts_per_page' => -1,
+        'orderby' => 'date',
+        'order' => 'DESC',
+        'tax_query' => array(
+            array(
+                'taxonomy' => 'achievements_cat',
+                'field' => 'slug',
+                'terms' => $post_type
+            )
+        )
+    );
+    $posts_array = get_posts($args);
+    $output = '<div class="achievements-list">';
+    foreach ($posts_array as $post) {
+        setup_postdata($post);
+        $output .= '<div class="swell-block-capbox cap_box" id="post-' . get_the_ID() . '">';
+        $output .= '<div class="cap_box_ttl"><span><strong><span class="swl-fz" style="font-size:1.5em;">'. get_the_title() .'</span></strong></span></div>';
+        $output .= '<div class="cap_box_content">';
+        $output .= '< class="wp-block-media-text has-media-on-the-right is-stacked-on-mobile is-vertically-aligned-center is-style-default u-mb-ctrl u-mb-20" style="grid-template-columns:auto 30%">';
+            $output .= '<div class="wp-block-media-text__content"><figure class="wp-block-table min_width10_ is-all-centered--va"><table style="--swl-cell1-width:150px;"><tbody>';
+                $output .= '<tr><td>クライアント名</td><td>' . get_field('name') . '</td></tr>';
+                $output .= '<tr><td>地域</td><td>' . get_field('area') . '</td></tr>';
+                $output .= '<tr><td>業種</td><td>' . get_field('industry') . '</td></tr>';
+                $output .= '<tr><td>売上高</td><td>' . get_field('sales') . '</td></tr>';
+            $output .= '</tbody></table></figure></div>';
+            $output .= '<figure class="wp-block-media-text__media"><img src="' . get_the_post_thumbnail_url() . '" alt="" width="" height="" loading="lazy" decoding="async" /></figure>';
+        $output .= '</div>';
+        $output .= '<hr class="wp-block-separator has-alpha-channel-opacity is-style-wide u-mb-ctrl u-mb-10">';
+        $output .= '<p class="u-mb-ctrl u-mb-5" style="font-size:1.5em"><strong>ポイント</strong></p>';
+        $output .= '<p>' . get_field('points') . '</p>';
+        $output .=  '</div>';
+        $output .= '</div>';
+    }
+    $output .= '</div>';
+    wp_reset_postdata();
+    return $output;
+}
+add_shortcode('achievements_list', 'achievements_list_func');
+
+
+// 各サービスページにカテゴリに応じた実績を3つ表示するためのショートコード
+function achievements_func($atts){
+
+}
+add_shortcode('achievements', 'achievements_func');

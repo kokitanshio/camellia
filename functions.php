@@ -352,11 +352,11 @@ function achievements_func($atts){
         $output .= '</figure>';
         $output .= '<div class="thumbnail03__texts">';
         if($index == 0){
-            $output .= '<p class="thumbnail03__title">実績①</p>';
+            $output .= '<h3 class="thumbnail03__title">'.get_the_title().'</h3>';
         }elseif($index == 1){ 
-            $output .= '<p class="thumbnail03__title">事例②</p>';
+            $output .= '<h3 class="thumbnail03__title">'.get_the_title().'</h3>';
         }elseif($index == 2){
-            $output .= '<p class="thumbnail03__title">事例③</p>';
+            $output .= '<h3 class="thumbnail03__title">'.get_the_title().'</h3>';
         }
         $output .= '<p class="thumbnail03__text">' . get_field('overview') . '</p>';
         $output .= '</div>';

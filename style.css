@@ -291,6 +291,13 @@ h2 {
   bottom: 50px;
 }
 
+/* ④役員紹介画像hover時のスタイル変更 */
+@media (any-hover: hover){
+  .js-member-link:hover{
+    cursor: pointer;
+  }
+} 
+
 /*------------------
 ２）TOP
 ------------------*/

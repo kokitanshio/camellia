@@ -876,10 +876,7 @@ label.contact-form__field-label,
 	margin-bottom: 100px !important;
 }
 /* ブログ新着一覧、カテゴリー/アーカイブページ余白調整 25.3.1 */
-.archive.category .l-container,
-.blog .l-container {
-	margin-bottom: 100px !important;
-}
+
 #sidebar {
 	margin-bottom: 100px !important;
 }

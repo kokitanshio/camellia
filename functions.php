@@ -68,7 +68,6 @@ function custom_toggle_link_script() {
 function swl_parts__post_list_category($args) {
     $the_id = $args['post_id'] ?? get_the_ID();
     $cat_data = get_the_category($the_id);
-    $genre_data = get_the_terms($the_id, 'news-cat'); // 「news」に独自に設定したタクソノミースラッグを入れる
 
     if (!empty($cat_data)) { // カテゴリーのラベル表示用
         echo '<span class="c-postThumb__cat icon-folder" data-cat-id="' . $cat_data[0]->slug . '">' . $cat_data[0]->name . '</span>';
@@ -95,8 +94,8 @@ add_filter( 'widget_archives_args', 'my_widget_archives_args', 10, 1);
 add_filter( 'widget_archives_dropdown_args', 'my_widget_archives_args', 10, 1);
 function my_widget_archives_args( $args ){
     if ( ! is_admin() ) {
-        if ( 'news' == get_post_type() || is_post_type_archive('news') ) {
-            $args['post_type'] = 'news';
+        if ( 'blog' == get_post_type() || is_post_type_archive('blog') ) {
+            $args['post_type'] = 'blog';
         }
     }
     return $args;
@@ -212,14 +211,14 @@ add_action('admin_menu', 'my_remove_meta_boxes');
 function Change_menulabel() {
     global $menu;
     global $submenu;
-    $name = 'ブログ';
+    $name = 'おしらせ';
     $menu[5][0] = $name;
     $submenu['edit.php'][5][0] = $name . '一覧';
     $submenu['edit.php'][10][0] = '新しい' . $name;
 }
 function Change_objectlabel() {
     global $wp_post_types;
-    $name = 'ブログ';
+    $name = 'おしらせ';
     $labels = &$wp_post_types['post']->labels;
     $labels->name = $name;
     $labels->singular_name = $name;

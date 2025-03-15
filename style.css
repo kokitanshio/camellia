@@ -866,6 +866,36 @@ label.contact-form__field-label,
 	top: 112px !important;
 }
 
+@media (min-width: 960px) and (max-width: 1080px) {
+  header.l-header{
+    zoom: 0.85;
+  }
+}
+
+/* ヘッダー言語切替ボタン調整25.3.14 */
+.add-lang{
+  display: flex;
+  align-items: center;
+}
+
+.add-lang__btn{
+  font-size: 14px;
+  &[disabled]{
+    pointer-events: none;
+    opacity: 0.5;
+  }
+}
+
+.l-header__customBtn.sp_{
+  display: none!important;
+}
+
+@media not all and (min-width: 960px) {
+  .w-header.pc_:has(.add-lang){
+    display: flex!important;
+  }
+}
+
 /*------------------
 10）余白調整
 ------------------*/

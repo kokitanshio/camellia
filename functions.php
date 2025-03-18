@@ -344,7 +344,7 @@ function achievements_func($atts){
     foreach ($posts_array as $index => $post) {
         setup_postdata($post);
         $output .= '<div class="thumbnail03">';
-        $output .= '<a href="./case#post-' . $index . '" class="thumbnail03__link">';
+        $output .= '<a href="'. esc_url(home_url("services/$post_type/case#post-$index")) . '" class="thumbnail03__link">';
         $output .= '<div class="thumbnail03__container">';
         $output .= '<figure class="thumbnail03__img">';
         $output .= '<img src="' . get_the_post_thumbnail_url() . '" alt="" width="273" height="219" loading="lazy" decoding="async">';
